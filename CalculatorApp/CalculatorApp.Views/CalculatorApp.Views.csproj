@@ -4,17 +4,18 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DebugType>pdbonly</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CalculatorApp.ViewModels\CalculatorApp.ViewModels.csproj" />
-    <ProjectReference Include="..\CalculatorApp.Views\CalculatorApp.Views.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="CalculatorView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ViewModels="clr-namespace:CalculatorApp.ViewModels;assembly=CalculatorApp.ViewModels"
+             x:Class="CalculatorApp.Views.CalculatorView">
+    <ContentPage.BindingContext>
+        <ViewModels:CalculatorViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="plainButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#eee"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="40" />
+            </Style>
+            <Style x:Key="darkerButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#ddd"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="40" />
+            </Style>
+            <Style x:Key="blackButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#000"/>
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="40" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150" />
+                <RowDefinition Height="150" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Text="{Binding AllOperands}" Grid.Row="0" HorizontalTextAlignment="End" VerticalTextAlignment="End" TextColor="Black"
+                    FontSize="20" Grid.ColumnSpan="4" />
+            <Label Text="{Binding Number}" Grid.Row="1" HorizontalTextAlignment="End" VerticalTextAlignment="End" TextColor="Black"
+                    FontSize="60" Grid.ColumnSpan="4" />
+            <Button Text = "C" Command="{Binding ClearCommand}" Grid.Row="2" Grid.Column="0" Style="{StaticResource blackButton}" />
+            <Button Text = "/" Command="{Binding DivideCommand}" Grid.Row="2" Grid.Column="3" Style="{StaticResource blackButton}" />
+            <Button Text = "7" Command="{Binding NumberPad7Command}" Grid.Row="3" Grid.Column="0" Style="{StaticResource plainButton}" />
+            <Button Text = "8" Command="{Binding NumberPad8Command}" Grid.Row="3" Grid.Column="1" Style="{StaticResource plainButton}" />
+            <Button Text = "9" Command="{Binding NumberPad9Command}" Grid.Row="3" Grid.Column="2" Style="{StaticResource plainButton}" />
+            <Button Text = "X" Command="{Binding MultiplyCommand}" Grid.Row="3" Grid.Column="3" Style="{StaticResource blackButton}" />
+            <Button Text = "4" Command="{Binding NumberPad4Command}" Grid.Row="4" Grid.Column="0" Style="{StaticResource plainButton}" />
+            <Button Text = "5" Command="{Binding NumberPad5Command}" Grid.Row="4" Grid.Column="1" Style="{StaticResource plainButton}" />
+            <Button Text = "6" Command="{Binding NumberPad6Command}" Grid.Row="4" Grid.Column="2" Style="{StaticResource plainButton}" />
+            <Button Text = "-" Command="{Binding SubtractCommand}" Grid.Row="4" Grid.Column="3" Style="{StaticResource blackButton}" />
+            <Button Text = "1" Command="{Binding NumberPad1Command}" Grid.Row="5" Grid.Column="0" Style="{StaticResource plainButton}" />
+            <Button Text = "2" Command="{Binding NumberPad2Command}" Grid.Row="5" Grid.Column="1" Style="{StaticResource plainButton}" />
+            <Button Text = "3" Command="{Binding NumberPad3Command}" Grid.Row="5" Grid.Column="2" Style="{StaticResource plainButton}" />
+            <Button Text = "+" Command="{Binding AddCommand}" Grid.Row="5" Grid.Column="3" Style="{StaticResource blackButton}" />
+            <Button Text = "0" Command="{Binding NumberPad0Command}" Grid.ColumnSpan="2" Grid.Row="6" Grid.Column="0" Style="{StaticResource plainButton}" />
+            <Button Text = "." Command="{Binding PointCommand}" Grid.Row="6" Grid.Column="2" Style="{StaticResource plainButton}" />
+            <Button Text = "=" Command="{Binding EqualsCommand}" Grid.Row="6" Grid.Column="3" Style="{StaticResource blackButton}" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

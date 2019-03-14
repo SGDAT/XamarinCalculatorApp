@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
-namespace CalculatorApp
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace CalculatorApp.Views
 {
-    public partial class MainPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class CalculatorView : ContentPage
     {
-        public MainPage()
+        public CalculatorView()
         {
             InitializeComponent();
         }
